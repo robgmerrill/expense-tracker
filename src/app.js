@@ -12,10 +12,11 @@ import './styles/styles.scss';
 const store = configureStore();
 store.dispatch(addExpense({ description: 'car'}));
 store.dispatch(addExpense({ description: 'car wash'}));
+store.dispatch(addExpense({ description: 'car wash', amount: 40000}));
 store.dispatch(setTextFilter('ca'));
 
 setTimeout(() => {
-  store.dispatch(setTextFilter('a'));
+  store.dispatch(setTextFilter('car w'));
 }, 3000)
 
 const state = store.getState();
