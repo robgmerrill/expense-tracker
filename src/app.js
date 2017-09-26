@@ -10,14 +10,10 @@ import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 
 const store = configureStore();
-store.dispatch(addExpense({ description: 'car'}));
-store.dispatch(addExpense({ description: 'car wash'}));
-store.dispatch(addExpense({ description: 'car wash', amount: 40000}));
-store.dispatch(setTextFilter('ca'));
-
-setTimeout(() => {
-  store.dispatch(setTextFilter('car w'));
-}, 3000)
+store.dispatch(addExpense({ description: 'car', amount: 3500}));
+store.dispatch(addExpense({ description: 'car wash', createdAt: 1000}));
+store.dispatch(addExpense({ description: 'dog wash', amount: 40000}));
+store.dispatch(setTextFilter(''));
 
 const state = store.getState();
 const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
