@@ -1,8 +1,11 @@
 // Get visible expenses
+import moment from 'moment';
+
 export default (expenses, { text, sortBy, startDate, endDate }) => {
   return expenses.filter((expense) => {
-    const startDateMatch = typeof startDate !== 'number' || expense.createdAt >= startDate;
-    const endDateMatch = typeof endDate !== 'number' || expense.createdAt <= endDate;
+    const createdAtMomement = moment(expense.createdAt);
+    const startDateMatch = startDate ? startDate.isSameOrBefore(createdAtMomement, 'day') : true;
+    const endDateMatch = endDate ? endDate.isSameOrAfter(createdAtMomement, 'day') : true;
     const textMatch = expense.description.toLowerCase().includes(text.toLowerCase());
 
     // figure out if expenses.description has the text variable string inside of it
