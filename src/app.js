@@ -8,8 +8,10 @@ import { setTextFilter } from './actions/filters';
 import getVisibleExpenses from './selectors/expenses';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
+import 'react-dates/lib/css/_datepicker.css';
 
 const store = configureStore();
+console.log('test');
 store.dispatch(addExpense({ description: 'car', amount: 3500}));
 store.dispatch(addExpense({ description: 'car wash', createdAt: 1000}));
 store.dispatch(addExpense({ description: 'dog wash', amount: 40000}));
